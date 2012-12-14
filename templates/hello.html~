@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>
+			{% if title %}
+				{{ title }}
+			{% else %}
+				default	
+			{% endif %}
+		</title>
+	</head>
+	<body>
+		<p><a href="{{ log_link }}">{{ log_link }}</a></p>
+		{% if info %}
+			<h1>{{ info }}</h1>
+		{% endif %}
+	</body>
+</html>

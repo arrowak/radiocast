@@ -1,0 +1,36 @@
+from flask import Flask, render_template, request, session, url_for, redirect
+
+import settings as s
+import sys
+
+sys.path.insert(0,"/var/www/radiocast/classes/")
+import class2 as c
+
+app = Flask(__name__)
+
+@app.route('/example',methods=['GET'])
+def hello_world():
+ try:
+ 	if session['loggedin']:
+ 		a="You are logged in!"
+ 		return render_template("hello.html", title="Radicast | Home", info=a, log_link="/logout", log_text="logout")
+ except:
+ 	 a="You are not logged in!"
+ 	 return render_template("hello.html", title="Radicast | Home", info=a, log_link="/session", log_text="login")
+
+
+@app.route("/session")
+def my_session():
+	session['loggedin']=True
+	return redirect(url_for("hello_world"))
+
+
+@app.route("/logout")
+def logout():
+	session.pop('loggedin',None)
+	return redirect(url_for(hello_world))
+
+
+if __name__ == '__main__':
+ app.secret_key="This is my secret!!"
+ app.run(debug=True)
