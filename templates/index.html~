@@ -8,7 +8,6 @@
 	</head>
 
 	<body>
-		<div class="eight columns centered" style="background:#EEEEEE;">
 		 {% include "layouts/header.html" %}  
   
   		<!-- First Band (Image) -->

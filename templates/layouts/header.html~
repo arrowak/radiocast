@@ -1,5 +1,5 @@
 <!-- Header and Nav -->
-  		
+  		<div class="eight columns centered" style="background:#EEEEEE;">
   			<div class="row">
   				 <div class="three columns">
      			  	<h1><img src="/static/img/logo.png" /></h1>
